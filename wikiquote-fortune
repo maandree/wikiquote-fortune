@@ -89,6 +89,6 @@ for m in ${months[@]}; do
     else
 	sed -e "s: ${m} :${index}:"
     fi
-    (( index++ ))
+    index=$(( index + 1 ))
 done > version
 
