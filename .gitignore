@@ -1,0 +1,11 @@
+_/
+\#*\#
+.*
+!.git*
+*~
+*.swo
+*.swp
+*.bak
+/quotes
+/version
+
