@@ -82,13 +82,13 @@ grep -Po '<a [^>]*>[^<]*</a>' | grep date |
 grep -Po '>[^<]*<' |
 sed -e 's/>[0-9]*:[0-9]*, \([^<]*\)</\1/' |
 sed -e 's/^\([0-9]*\) \([A-Za-z]*\) \([0-9]*\)$/\3 \2 0\1/g' |
-sed -e 's/ 0\(..\)$/ \1/g' |
+sed -e 's/ 0\(..\)$/ \1/g' > version
 for m in ${months[@]}; do
     if (( index < 10 )); then
-	sed -e "s: ${m} :0${index}:"
+	sed -i "s: ${m} :0${index}:" version
     else
-	sed -e "s: ${m} :${index}:"
+	sed -i "s: ${m} :${index}:" version
     fi
     index=$(( index + 1 ))
-done > version
+done
 
