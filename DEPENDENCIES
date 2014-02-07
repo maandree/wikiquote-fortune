@@ -1,0 +1,12 @@
+RUNTIME DEPENDENCIES:
+
+	bash
+	wget
+	sed
+	grep
+
+
+MAKE DEPENDENCIES:
+
+	(none)
+
