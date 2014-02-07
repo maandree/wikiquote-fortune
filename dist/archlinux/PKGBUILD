@@ -1,7 +1,7 @@
 # Maintainer: Mattias Andrée <`base64 -d`(bWFhbmRyZWUK)@member.fsf.org>
 
 pkgname=wikiquote-fortune
-pkgver=1.1
+pkgver=1.2
 pkgrel=1
 pkgdesc="Generate fortune cookies from Wikiquote"
 arch=('any')
@@ -10,7 +10,7 @@ license=('GPL3')
 depends=('bash' 'wget' 'grep' 'sed')
 makedepends=('coreutils')
 source=(https://github.com/maandree/wikiquote-fortune/archive/${pkgver}.tar.gz)
-sha256sums=(fa023e626827c5ec905949f165c75d4e88b7b6644acbafe6493bed63968c4605)
+sha256sums=(181140b7cc75da84b3939d5a51261584797c81332f632bb46089388e95016e8e)
 
 
 package() {
