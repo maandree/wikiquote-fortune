@@ -10,7 +10,7 @@ license=('GPL3')
 depends=('bash' 'wget' 'grep' 'sed')
 makedepends=('coreutils')
 source=(https://github.com/maandree/wikiquote-fortune/archive/${pkgver}.tar.gz)
-sha256sums=(181140b7cc75da84b3939d5a51261584797c81332f632bb46089388e95016e8e)
+sha256sums=(d0f97d25f3bc00443a337ea26118283b25786a0dca74270bde732e86aaab1ec5)
 
 
 package() {
