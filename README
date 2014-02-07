@@ -1,11 +1,13 @@
-Script the generates fortune cookies for fortune-mod from Wikiquote.
+Script the generates fortune cookies for
+fortune-mod from Wikiquote.
 
 
 USAGE:  wikiquote-fortune SHOW_NAME
 
-	Generates the file `quotes` with all quotes from
-	the Wikiquote source, and the file `version` with
-	the date the source was last edited in the format
+	Generates the file `quotes` with all
+	quotes from the Wikiquote source, and
+	the file `version` with the date the
+	source was last edited in the format
 	`yyyymmdd`.
 
 or	wikiquote-fortune SHOW_NAME date-only
