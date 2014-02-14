@@ -14,3 +14,12 @@ or	wikiquote-fortune SHOW_NAME date-only
 
 	Generates only the `version` file.
 
+
+If you use wikiquote-fortune to create a fortune cookie package
+please consider submitting it to wikiquote-fortune-collection at
+<https://github.com/maandree/wikiquote-fortune-collection>.
+Doing so means that I will (unless you perfer to it youself)
+maintain it for the Arch Linux User Repository and will do my
+best to make use wikiquote-fortune will new versions of the
+Wikiquote page.
+
