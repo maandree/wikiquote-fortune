@@ -47,8 +47,8 @@ if [ $dateonly = 0 ]; then
     sed -e 's:\(<[bi]>\|</[bi]>\|<dd>\|</dd>\)::g' |
     sed -e '/<label for="searchInput">Search<\/label>/d' |
     sed -e 's:<hr .*/>:<hr>:g' |
-    sed -e 's:<br */>::g' |
-    sed -e 's:<br *>::g' |
+    sed -e 's:<br\( */\| *\)>::g' |
+    sed -e 's:<\(small|\/small\)>::g' |
     sed -e 's:\&#160;: :g' |
     sed -e 's:\&amp;:\&:g' |
     sed -e 's/ :/:/g' ; echo "<hr>") |
