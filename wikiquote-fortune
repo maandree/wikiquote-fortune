@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- python -*-
 
 # wikiquote-fortune – Generate fortune cookies from Wikiquote
 # Copyright © 2014  Mattias Andrée (maandree@member.fsf.org)
@@ -91,7 +92,9 @@ if not dateonly:
     
     parser.Parse(wiki, 1)
     
-    lines = text.replace('[edit]', '').rstrip(' \n\t').split('\n')
+    text = text.replace('[edit]', '')
+    text = text.rstrip(' \n\t')
+    lines = text.split('\n')
     text = ''
     episode, part = None, None
     lines_added = 0
@@ -103,8 +106,8 @@ if not dateonly:
                 lines_added = 0
                 episode_ = episode if part is None else ('%s - %s' % (episode, part))
                 text += '\n\t-- %s - %s\n%%\n' % (show, episode_)
-                if not line == '\t-----':
-                    episode, part = line[1:], None
+            if not line == '\t-----':
+                episode, part = line[1:], None
         else:
             lines_added += 1
             text += line + '\n'
