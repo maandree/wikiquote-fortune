@@ -8,7 +8,7 @@ USAGE:  wikiquote-fortune SHOW_NAME
 	quotes from the Wikiquote source, and
 	the file `version` with the date and
 	time the source was last edited in
-	the format `YYMMDDhhmm`.
+	the format `yymmddHHMM`.
 
 or	wikiquote-fortune SHOW_NAME date-only
 
