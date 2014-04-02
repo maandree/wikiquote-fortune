@@ -42,7 +42,80 @@ if not proc.returncode == 0:
 
 
 if not dateonly:
-    pass
+    in_body = False
+    in_quote_area = False
+    in_bad_area = False
+    text = ''
+    
+    def start_element(name, attrs):
+        global in_body, in_quote_area, in_bad_area, text
+        if name == 'body':
+            in_body = True
+        elif in_body and (name in ('h3', 'h4', 'dl', 'dd', 'hr')):
+            if (name not in ('h3', 'h4')) or (len(attrs) == 0):
+                if name == 'h3':
+                    text += '\t'
+                if name == 'h4':
+                    text += '\t\t'
+                in_quote_area = True
+        elif name in ('label',):
+            in_bad_area = True
+        if in_quote_area and not in_bad_area:
+            if name == 'hr':
+                text += '\t-----\n'
+    
+    def end_element(name):
+        global in_body, in_quote_area, in_bad_area, text
+        if name == 'body':
+            in_body = False
+        elif in_body and (name in ('h3', 'h4', 'dl', 'dd', 'hr')):
+            in_quote_area = False
+            if name in ('dd', 'h3', 'h4'):
+                text += '\n'
+        elif name in ('label',):
+            in_bad_area = False
+    
+    def char_data(data):
+        global text
+        if in_quote_area and not in_bad_area:
+            data = data.strip('\t\n')
+            while '  ' in data:
+                data = data.replace('  ', ' ')
+            if not data == '':
+                text += data
+    
+    parser = pyexpat.ParserCreate()
+    parser.StartElementHandler = start_element
+    parser.EndElementHandler = end_element
+    parser.CharacterDataHandler = char_data
+    
+    parser.Parse(wiki, 1)
+    
+    lines = text.replace('[edit]', '').rstrip(' \n\t').split('\n')
+    text = ''
+    episode, part = None, None
+    lines_added = 0
+    for line in lines:
+        if line.startswith('\t\t'):
+            part = line[2:]
+        elif line.startswith('\t'):
+            if lines_added > 0:
+                lines_added = 0
+                episode_ = episode if part is None else ('%s - %s' % (episode, part))
+                text += '\n\t-- %s - %s\n%%\n' % (show, episode_)
+                if not line == '\t-----':
+                    episode, part = line[1:], None
+        else:
+            lines_added += 1
+            text += line + '\n'
+    
+    if lines_added > 0:
+        episode_ = episode if part is None else ('%s - %s' % (episode, part))
+        text += '\n\t-- %s - %s\n%%\n' % (show, episode_)
+    
+    with open('quotes', 'wb') as file:
+        file.write(text.encode('utf-8'))
+        file.flush()
 
 
 history_url = None
@@ -134,6 +207,6 @@ time = ('0' + time.replace(':', ''))[-4:]
 version = date + time
 
 with open('version', 'wb') as file:
-    file.write(version.encode('utf-8'))
+    file.write((version + '\n').encode('utf-8'))
     file.flush()
 
