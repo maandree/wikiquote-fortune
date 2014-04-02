@@ -79,7 +79,7 @@ if not dateonly:
     def char_data(data):
         global text
         if in_quote_area and not in_bad_area:
-            data = data.strip('\t\n')
+            data = data.strip('\t\n').replace(' ', ' ')
             while '  ' in data:
                 data = data.replace('  ', ' ')
             if not data == '':
