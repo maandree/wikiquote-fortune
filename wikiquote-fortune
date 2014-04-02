@@ -62,7 +62,9 @@ if not dateonly:
         elif name in ('label',):
             in_bad_area = True
         if in_quote_area and not in_bad_area:
-            if name == 'hr':
+            if (name == 'hr') and (len(text) > 0):
+                if not text.endswith('\n'):
+                    text += '\n'
                 text += '\t-----\n'
     
     def end_element(name):
