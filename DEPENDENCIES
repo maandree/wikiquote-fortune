@@ -1,9 +1,6 @@
 RUNTIME DEPENDENCIES:
 
-	bash
-	wget
-	sed
-	grep
+	python
 
 
 MAKE DEPENDENCIES:
