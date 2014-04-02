@@ -6,9 +6,9 @@ USAGE:  wikiquote-fortune SHOW_NAME
 
 	Generates the file `quotes` with all
 	quotes from the Wikiquote source, and
-	the file `version` with the date the
-	source was last edited in the format
-	`yyyymmdd`.
+	the file `version` with the date and
+	time the source was last edited in
+	the format `YYMMDDhhmm`.
 
 or	wikiquote-fortune SHOW_NAME date-only
 
