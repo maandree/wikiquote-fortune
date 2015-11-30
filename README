@@ -1,25 +1,28 @@
-Script the generates fortune cookies for
-fortune-mod from Wikiquote.
+NAME
+	wikiquote-fortune - Generate fortune cookies from Wikiquote
 
+SYNOPSIS
+	wikiquote-fortune SHOW_NAME [date-only]
 
-USAGE:  wikiquote-fortune SHOW_NAME
+DESCRIPTION
+	Generates the file 'quotes' with all quotes from the Wikiquote
+	source for the show SHOW_NAME, and the file 'version' with the
+	with the date and time the source was last edited, in the format
+	yymmddHHMM.
 
-	Generates the file `quotes` with all
-	quotes from the Wikiquote source, and
-	the file `version` with the date and
-	time the source was last edited in
-	the format `yymmddHHMM`.
+OPTIONS
+	date-only
+		Do not generate the file 'quotes'.
 
-or	wikiquote-fortune SHOW_NAME date-only
+NOTES
+	If you use wikiquote-fortune to create a fortune cookie package
+	please consider submitting it to wikiquote-fortune-collection at
+	<https://github.com/maandree/wikiquote-fortune-collection>.
+	Doing so means that I will (unless you perfer to it youself)
+	maintain it for the Arch Linux User Repository and will do my
+	best to make sure wikiquote-fortune will work with new versions
+	of the Wikiquote page.
 
-	Generates only the `version` file.
-
-
-If you use wikiquote-fortune to create a fortune cookie package
-please consider submitting it to wikiquote-fortune-collection at
-<https://github.com/maandree/wikiquote-fortune-collection>.
-Doing so means that I will (unless you perfer to it youself)
-maintain it for the Arch Linux User Repository and will do my
-best to make sure wikiquote-fortune will work with new versions
-of the Wikiquote page.
+SEE ALSO
+	fortune(6), wikiquote-fortune-collection
 
