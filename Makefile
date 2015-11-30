@@ -21,21 +21,27 @@ COMMAND = wikiquote-fortune
 
 
 .PHONY: default
-default: base
+default: base man
 
 .PHONY: all
-all: base
+all: base doc
 
 .PHONY: base
 base:
 
+.PHONY: doc
+doc: man
+
+.PHONY: man
+man:
+
 
 
 .PHONY: install
-install: install-base
+install: install-base install-man
 
 .PHONY: install-all
-install-all: install-base
+install-all: install-base install-doc
 
 .PHONY: install-base
 install-base: install-command install-copyright
@@ -58,6 +64,11 @@ install-license:
 	install -dm755 -- "$(DESTDIR)$(LICENSEDIR)/$(PKGNAME)"
 	install -m644 LICENSE -- "$(DESTDIR)$(LICENSEDIR)/$(PKGNAME)/LICENSE"
 
+.PHONY: install-doc
+install-doc: install-man
+	install -dm755 -- "$(DESTDIR)$(MAN1DIR)"
+	install -m644 doc/man/wikiquote-fortune.1 -- "$(DESTDIR)$(MAN1DIR)/$(COMMAND).1"
+
 
 
 .PHONY: uninstall
@@ -66,6 +77,7 @@ uninstall:
 	-rm -- "$(DESTDIR)$(LICENSEDIR)/$(PKGNAME)/COPYING"
 	-rm -- "$(DESTDIR)$(LICENSEDIR)/$(PKGNAME)/LICENSE"
 	-rmdir -- "$(DESTDIR)$(LICENSEDIR)/$(PKGNAME)"
+	-rm -- "$(DESTDIR)$(MAN1DIR)/$(COMMAND).1"
 
 
 

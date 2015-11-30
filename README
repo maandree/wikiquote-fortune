@@ -7,7 +7,7 @@ SYNOPSIS
 DESCRIPTION
 	Generates the file 'quotes' with all quotes from the Wikiquote
 	source for the show SHOW_NAME, and the file 'version' with the
-	with the date and time the source was last edited, in the format
+	date and time the source was last edited, in the format
 	yymmddHHMM.
 
 OPTIONS
@@ -22,6 +22,10 @@ NOTES
 	maintain it for the Arch Linux User Repository and will do my
 	best to make sure wikiquote-fortune will work with new versions
 	of the Wikiquote page.
+
+RATIONALE
+	We have a myriad of people adding quotes to Wikiquote. Why not
+	utilise this for fortune-mod?
 
 SEE ALSO
 	fortune(6), wikiquote-fortune-collection
