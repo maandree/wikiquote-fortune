@@ -6,5 +6,11 @@ RUNTIME DEPENDENCIES:
 
 MAKE DEPENDENCIES:
 
-	(none)
+	texinfo, make, coreuitls (optional)
+
+
+INSTALL DEPENDENCIES:
+
+	make
+	coreutils
 
