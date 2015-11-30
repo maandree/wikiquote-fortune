@@ -1,11 +1,15 @@
 _/
+/bin/
+/obj/
 \#*\#
 .*
 !.git*
 *~
 *.swo
 *.swp
+*.new
 *.bak
 /quotes
 /version
+*.info
 
