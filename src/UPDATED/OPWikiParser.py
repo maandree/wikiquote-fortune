@@ -2,7 +2,8 @@
 # -*- python -*-
 
 # wikiquote-fortune – Generate fortune cookies from Wikiquote
-# Copyright © 2014  Mattias Andrée (maandree@member.fsf.org)
+# Copyright © 2014, 2016  Mattias Andrée (maandree@member.fsf.org)
+# Copyright © 2016        Chuk Ume (chubiyke@gmail.com)
 # 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
