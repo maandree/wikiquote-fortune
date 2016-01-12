@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # -*- python -*-
 
 # wikiquote-fortune – Generate fortune cookies from Wikiquote
