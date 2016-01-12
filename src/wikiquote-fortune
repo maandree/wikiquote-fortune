@@ -60,7 +60,7 @@ if not dateonly:
                 if name == 'h4':
                     text += '\t\t'
                 in_quote_area = True
-        elif name in ('label',):
+        elif name == 'label':
             in_bad_area = True
         if in_quote_area and not in_bad_area:
             if (name == 'hr') and (len(text) > 0):
@@ -76,13 +76,13 @@ if not dateonly:
             in_quote_area = False
             if name in ('dd', 'h3', 'h4'):
                 text += '\n'
-        elif name in ('label',):
+        elif name == 'label':
             in_bad_area = False
     
     def char_data(data):
         global text
         if in_quote_area and not in_bad_area:
-            data = data.strip('\t\n').replace(' ', ' ')
+            data = data.strip('\t\n').replace(' ', ' ') # the first space is a nbsp
             while '  ' in data:
                 data = data.replace('  ', ' ')
             if not data == '':

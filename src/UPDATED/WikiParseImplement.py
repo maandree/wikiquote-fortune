@@ -26,51 +26,40 @@ from OPWikiParser import *
 from supernaturalParse import *
 
 
-
-
-
 Holder = None
 # print('globe')
 
 if show.upper() == "SUPERNATURAL":
-        main = True        
- 
-        for i in range(1,11) :
-            SupParse = SuperParse()
-            file = open('quote','ab') 
-            show_ = 'Supernatural (season %s)'%str(i)
+    main = True
+    
+    for i in range(1,11):
+        SupParse = SuperParse()
+        file = open('quote','ab') 
+        show_ = 'Supernatural (season %s)'%str(i)
         
-            if main:
-               
-                main = False
-                SupParse.Tags[2] = 'li' #Adds the li tag to parse the first page
-                SupParse.CommandLineArg(show)
-                Holder = SupParse.wiki
-                SupParse.WikiScraper(SupParse.wiki)
-                SupParse.WikiFormater(SupParse.text)
-                file.write(SupParse.text.encode('utf-8'))
-
-            else:
-                SupParse.Tags[2] = 'dd' #Replaces li tag to parse other pages
-                SupParse = SuperParse()                
-                SupParse.CommandLineArg(show_)
-                Holder = SupParse.wiki
-                SupParse.WikiScraper(SupParse.wiki)
-                SupParse.WikiFormater(SupParse.text)
-                file.write(SupParse.text.encode('utf-8'))
-            
-            file.flush()
-            file.close()
+        if main:
+            main = False
+            SupParse.Tags[2] = 'li' #Adds the li tag to parse the first page
+            SupParse.CommandLineArg(show)
+        else:
+            SupParse.Tags[2] = 'dd' #Replaces li tag to parse other pages
+            SupParse = SuperParse()
+            SupParse.CommandLineArg(show_)
+        Holder = SupParse.wiki
+        SupParse.WikiScraper(SupParse.wiki)
+        SupParse.WikiFormater(SupParse.text)
+        file.write(SupParse.text.encode('utf-8'))
+        
+        file.flush()
+        file.close()
 
 
 ## this block Parses American Dad
 elif show.upper() =="AMERICAN DAD":
-    
-
-    for i in range(1,12):
+    for i in range(1, 12):
         myparse = WikiParse()
         file = open("quotes", 'ab')
-
+        
         show_ = "American_Dad!/Season_%s"%str(i)
         myparse.CommandLineArg(show_)
         Holder = myparse.wiki
@@ -91,8 +80,6 @@ else:
     file.write(myparse.text.encode('utf-8'))
     file.flush()
     file.close()
-
-
 
 
 history_url = None
@@ -187,3 +174,4 @@ version = date + time
 with open('version', 'wb') as file:
     file.write((version + '\n').encode('utf-8'))
     file.flush()
+
